@@ -1,0 +1,76 @@
+@import 'styles';
+
+.woloxer {
+  display: flex;
+  align-items: flex-start;
+  height: 55vh;
+
+  &__image {
+    width: 50%;
+    height: 100%;
+    background-image: url('../../../../assets/images/img_woloxer.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    &__text {
+      font-size: 2.8em;
+      color: $color-green;
+      font-family: 'Montserrat-Bold';
+
+      &--blue {
+        color: $color-blue;
+      }
+    }
+
+    &__twitter {
+      display: flex;
+      align-items: center;
+      padding: 20px 0 15px;
+      img {
+        width: 40px;
+      }
+      p {
+        color: $color-white;
+        font-size: 1em;
+        margin-left: 10px;
+      }
+    }
+    .btn-transparent {
+      padding: 12px 70px;
+      color: $color-white;
+      font-family: 'Montserrat-Bold';
+    }
+  }
+
+  &__text {
+    width: 50%;
+    height: 100%;
+    background-color: $color-blue-ligth;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__message {
+      font-size: 2.5em;
+      font-family: 'Montserrat-Regular';
+      color: $color-black;
+      padding: 0 15%;
+
+      &--blue {
+        font-family: 'Montserrat-Bold';
+        color: $color-blue;
+      }
+
+      &--green {
+        font-family: 'Montserrat-Bold';
+        color: $color-green;
+      }
+    }
+  }
+}

@@ -3,10 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { HeaderComponent } from './partials/header/header.component';
+import { Router, Scroll } from '@angular/router';
+import { ViewportScroller } from '@angular/common';
+import { filter } from 'rxjs/operators';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -15,4 +19,6 @@ import { AppComponent } from './app.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+}

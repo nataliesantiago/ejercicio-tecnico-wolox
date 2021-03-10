@@ -1,0 +1,42 @@
+@import 'styles';
+
+.thanks {
+  width: 100%;
+  height: 50vh;
+  background-image: url('../../../../assets/images/bg_footer.png');
+  background-position: center;
+  text-align: center;
+  box-shadow: inset 0 6px 16px -5px rgb(0 0 0 / 20%);
+
+  &-content {
+    padding-top: 60px;
+
+    &__text {
+      &__message {
+        font-size: 2em;
+        font-family: 'Montserrat-Bold';
+        color: $color-black;
+        padding-bottom: 15px;
+
+        &--blue {
+          color: $color-blue;
+        }
+      }
+
+      &__sub-message {
+        font-size: 1.2em;
+        font-family: 'Montserrat-Regular';
+        color: $color-black;
+        padding-bottom: 30px;
+      }
+      .btn-blue {
+          width: 20%;
+          margin: 0 auto;
+      }
+    }
+
+    &__image {
+        padding-top: 100px;
+    }
+  }
+}

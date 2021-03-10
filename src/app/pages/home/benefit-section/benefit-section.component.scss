@@ -1,0 +1,42 @@
+@import 'styles';
+
+.benefit {
+  height: 45vh;
+  padding: 80px 0;
+
+  &-content {
+    &__title {
+      text-align: center;
+      font-size: 1.8em;
+      font-family: 'Montserrat-Regular';
+      color: $color-black;
+      padding-bottom: 80px;
+
+      &--blue {
+        color: $color-blue;
+      }
+    }
+
+    &__list {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      &__element {
+        width: 16%;
+        text-align: center;
+
+        &-img {
+          height: 84px;
+        }
+
+        &-text {
+          padding-top: 30px;
+          font-family: 'Montserrat-Regular';
+          color: $color-black;
+          font-size: 1.2em;
+        }
+      }
+    }
+  }
+}

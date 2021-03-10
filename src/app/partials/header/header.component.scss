@@ -1,0 +1,69 @@
+@import 'styles';
+
+.header {
+  padding: 50px 0 15px;
+  position: fixed;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: $color-white;
+  z-index: 9;
+
+  &-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  
+    &__logo {
+      width: 14%;
+  
+      img {
+        width: 100%;
+      }
+    }
+  
+    &__menu {
+      width: 35%;
+  
+      &__list {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+  
+        li {
+          margin: 0 2%;
+          width: 30%;
+          text-align: center;
+          font-size: 1em;
+          font-family: 'Montserrat-Bold';
+          cursor: pointer;
+  
+          a {
+            color: $color-black;
+          }
+  
+          &:hover {
+            text-decoration: underline;
+          }
+  
+          &:last-child {
+            width: 40%;
+            margin-right: 0;
+  
+            a {
+              color: $color-blue;
+  
+              &:hover {
+                color: $color-white;
+              }
+            }
+  
+            &:hover {
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }  
+  }
+}
