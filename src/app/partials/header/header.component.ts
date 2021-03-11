@@ -10,6 +10,8 @@ import { filter } from 'rxjs/operators';
 })
 export class HeaderComponent implements OnInit {
 
+  user: any;
+
   constructor(private router: Router, viewportScroller: ViewportScroller) {
     viewportScroller.setOffset([0, 60]);
     router.events.pipe(filter(e => e instanceof Scroll)).subscribe((e: Scroll) => {
@@ -26,6 +28,11 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (localStorage.getItem('user') !== null) {
+      this.user = JSON.parse(localStorage.getItem('user'));
+    } else {
+      this.user = false;
+    }
   }
 
   /**

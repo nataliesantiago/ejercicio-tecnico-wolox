@@ -1,0 +1,22 @@
+@import 'styles';
+
+.register {
+  &-content {
+    &__form {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      &__column {
+          width: 48%;
+
+          label,
+          input,
+          select {
+              width: 100%;
+          }
+      }
+    }
+  }
+}

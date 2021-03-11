@@ -1,0 +1,65 @@
+<div class="register top-space">
+    <div class="register-content general-grid">
+        <form class="register-content__form" [formGroup]="registerForm" (ngSubmit)="saveRegister()">
+            <div class="register-content__form__column">
+                <label>Nombre</label>
+                <input formControlName='userName'/>
+                <label *ngIf="sendForm && userName.invalid">{{getError('userName', userName.errors)}}</label>
+            </div>
+            <div class="register-content__form__column">
+                <label>Apellido</label>
+                <input formControlName='lastName'/>
+                <label *ngIf="sendForm && lastName.invalid">{{getError('lastName', lastName.errors)}}</label>
+            </div>
+
+            <div class="register-content__form__column">
+                <label>País</label>
+                <select name="" id="" formControlName='country' (change)="filterDepartments(country.value)">
+                    <option value="">Selecciona una opción</option>
+                    <option *ngFor="let country of countries" [value]="country.country_id">{{country.country_name}}</option>
+                </select>
+                <label *ngIf="sendForm && country.invalid">{{getError('country', country.errors)}}</label>
+            </div>
+            <div class="register-content__form__column">
+                <label>Departamento/Provincia</label>
+                <select name="" id="" formControlName='department'>
+                    <option value="">Selecciona una opción</option>
+                    <option *ngFor="let department of departments" [value]="department.department_id">{{department.department_name}}</option>
+                </select>
+                <label *ngIf="sendForm && department.invalid">{{getError('department', department.errors)}}</label>
+            </div>
+
+            <div class="register-content__form__column">
+                <label>Email</label>
+                <input type="email" formControlName='email'>
+                <label *ngIf="sendForm && email.invalid">{{getError('email', email.errors)}}</label>
+            </div>
+            <div class="register-content__form__column">
+                <label>Teléfono</label>
+                <input type="text" formControlName="phone">
+                <label *ngIf="sendForm && phone.invalid">{{getError('phone', phone.errors)}}</label>
+            </div>
+
+            <div class="register-content__form__column">
+                <label>Contraseña</label>
+                <input type="password" name="" id="" formControlName='password'>
+                <label *ngIf="sendForm && password.invalid">{{getError('password', password.errors)}}</label>
+            </div>
+            <div class="register-content__form__column">
+                <label>Repetir contraseña</label>
+                <input type="password" name="" id="" formControlName='confirmPassword'>
+                <label *ngIf="sendForm && confirmPassword.invalid">{{getError('confirmPassword', confirmPassword.errors)}}</label>
+            </div>
+
+            <div>
+                <input type="checkbox" name="" id="" formControlName='terms'>
+                <p>Acepto <a routerLink="/terminos-y-condiciones">terminos y condiciones</a></p>
+                <label *ngIf="sendForm && terms.invalid">{{getError('terms', terms.errors)}}</label>
+            </div>
+
+            <button>
+                Guardar
+              </button>
+          </form>
+    </div>
+</div>

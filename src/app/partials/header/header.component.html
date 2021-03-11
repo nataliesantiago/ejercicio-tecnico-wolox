@@ -6,19 +6,19 @@
         
         <div class="header-content__menu">
             <ul class="header-content__menu__list">
-                <li>
+                <li class="header-content__menu__list__li header-content__menu__list__li--text">
                     <a routerLink="inicio#inicio" routerLinkActive="router-link-active" (click)="forceNavigate('inicio')">
                         Inicio
                     </a>
                 </li>
-                <li>
+                <li class="header-content__menu__list__li header-content__menu__list__li--text">
                     <a routerLink="inicio#beneficios" routerLinkActive="router-link-active" (click)="forceNavigate('beneficios')">
                         Beneficios
                     </a>
                 </li>
-                <li>
-                    <a href="" class="btn-transparent">
-                        Login
+                <li class="header-content__menu__list__li header-content__menu__list__li--button" *ngIf="!user && !user.token">
+                    <a routerLink="registrarse" routerLinkActive="router-link-active"  class="btn-transparent">
+                        Registrarse
                     </a>
                 </li>
             </ul>
