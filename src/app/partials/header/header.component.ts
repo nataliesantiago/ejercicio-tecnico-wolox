@@ -41,7 +41,6 @@ export class HeaderComponent implements OnInit, DoCheck {
     const FAVOURITE_TECH = localStorage.getItem('favourite_techs');
     if (FAVOURITE_TECH !== null) {
       this.haveFavouriteTech = JSON.parse(FAVOURITE_TECH);
-      console.log(this.haveFavouriteTech);
     } else {
       this.haveFavouriteTech = [];
     }
