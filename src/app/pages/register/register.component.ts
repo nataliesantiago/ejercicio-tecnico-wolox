@@ -21,12 +21,20 @@ export class RegisterComponent implements OnInit {
   countries: any = [];
   departments: any = [];
 
-  constructor(private formBuilder: FormBuilder, private registerService: RegisterService, private router: Router) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private registerService: RegisterService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.initForm();
     this.initMessagesForm();
     this.countries = COUNTRIES;
+
+    if (this.registerService.isAuthenticated()) {
+      this.router.navigate(['listado-tecnologias']);
+    }
   }
 
   /**

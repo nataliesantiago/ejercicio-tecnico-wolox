@@ -42,4 +42,13 @@ export class RegisterService {
         });
     });
   }
+
+  /**
+   * Funcion para identificar si el usuario ya esta registrado o no
+   *
+   */
+  isAuthenticated(): boolean {
+    const TOKEN = localStorage.getItem('user');
+    return TOKEN !== null ? true : false;
+  }
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { RegisterService } from '../../services/register/register.service';
 
 @Component({
   selector: 'app-terms',
@@ -7,7 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TermsComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private registerService: RegisterService,
+    private router: Router
+  ) {
+    if (this.registerService.isAuthenticated()) {
+      this.router.navigate(['listado-tecnologias']);
+    }
+  }
 
   ngOnInit(): void {
   }

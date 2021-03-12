@@ -21,7 +21,12 @@
                         Registrarse
                     </a>
                 </li>
-                <li class="header-content__menu__list__li" *ngIf="haveFavouriteTech.length > 0">
+                <li class="header-content__menu__list__li header-content__menu__list__li--text" *ngIf="user && user.token">
+                    <a (click)="navigateTo('listado-tecnologias')">
+                        Listado tecnologias
+                    </a>
+                </li>
+                <li class="header-content__menu__list__li" *ngIf="user && user.token && haveFavouriteTech.length > 0">
                     {{haveFavouriteTech.length}}
                 </li>
             </ul>

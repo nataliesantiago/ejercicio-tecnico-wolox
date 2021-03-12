@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RegisterModule } from './pages/register/register.module';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -17,7 +18,8 @@ const routes: Routes = [
   },
   {
     path: 'listado-tecnologias',
-    loadChildren: () => import('./pages/list-technologies/list-technologies.module').then(m => m.ListTechnologiesModule)
+    loadChildren: () => import('./pages/list-technologies/list-technologies.module').then(m => m.ListTechnologiesModule),
+    canActivate: [AuthGuard]
   },
   { path: '', redirectTo: 'inicio', pathMatch: 'full' }
 ];
