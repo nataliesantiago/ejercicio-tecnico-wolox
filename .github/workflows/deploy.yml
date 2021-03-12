@@ -30,26 +30,9 @@ jobs:
       
       - run: npm ci
       - run: npm run build:prod
-      
-      - uses: actions/upload-artifact@v1
-        with:
-          name: deploy_dist
-          path: dist
-          
-  deploy:
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v1
-        
-      - name: Download build
-        uses: actions/download-artifact@v1
-        with:
-          name: deploy_dist
-          
+                  
       - uses: ActionwareIO/branch-push-action@action 
         with: 
           branch: gh-pages 
-          files: deploy_dist/ejercicio-tecnico
+          files: dist/ejercicio-tecnico
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
