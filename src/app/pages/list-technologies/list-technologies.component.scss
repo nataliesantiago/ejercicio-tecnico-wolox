@@ -1,0 +1,19 @@
+@import "styles";
+
+.list-tech {
+    &__content {
+        &__title {
+            text-align: center;
+        }
+
+        &__grid {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+
+            &__field {
+                width: 20%;
+            }
+        }
+    }
+}

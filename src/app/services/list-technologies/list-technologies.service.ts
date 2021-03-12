@@ -6,8 +6,7 @@ import { environment } from '../../../environments/environment';
 @Injectable({
   providedIn: 'root',
 })
-export class RegisterService {
-
+export class ListTechnologiesService {
   host = environment.URL_BACK;
 
   constructor(private http: HttpClient) {}
@@ -23,18 +22,13 @@ export class RegisterService {
   }
 
   /**
-   * Funcion para hacer el llamado al servicio de registrar un usuario
+   * Funcion para hacer el llamado al servicio de obtener todas las tecnologias
    *
    */
-  registerUser(user: any): Promise<any> {
+  getListTechnologies(): Promise<any> {
     return new Promise((resolve, reject) => {
-      const BODY = user;
-      const HEADERS = {
-        headers: this.getParamsHeader(),
-      };
-
       this.http
-        .post<any>(`${this.host}/signup`, BODY, HEADERS)
+        .get<any>(`${this.host}/techs`)
         .pipe(map((response) => response))
         // tslint:disable-next-line: deprecation
         .subscribe((data) => {

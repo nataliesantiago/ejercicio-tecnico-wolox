@@ -1,6 +1,6 @@
 <section class="header ">
     <div class="header-content general-grid">
-        <div class="header-content__logo">
+        <div class="header-content__logo" (click)="navigateTo('inicio')">
             <img src="assets/images/logo_full_color.svg" alt="">
         </div>
         
@@ -17,9 +17,12 @@
                     </a>
                 </li>
                 <li class="header-content__menu__list__li header-content__menu__list__li--button" *ngIf="!user && !user.token">
-                    <a routerLink="registrarse" routerLinkActive="router-link-active"  class="btn-transparent">
+                    <a class="btn-transparent" (click)="navigateTo('registrarse')">
                         Registrarse
                     </a>
+                </li>
+                <li class="header-content__menu__list__li" *ngIf="haveFavouriteTech.length > 0">
+                    {{haveFavouriteTech.length}}
                 </li>
             </ul>
         </div>

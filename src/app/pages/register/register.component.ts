@@ -10,22 +10,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
+
   registerForm: FormGroup;
   formMessage: any;
-  regex_caract_numeros = /[ &#,+()$~%.'":*?¿<>{}=!¡_ÁÉÍÓÚ°|;ºªa-zA-Z\/\\\-\[\]]+/g;
   regexSpecialChar = /[�&#,+()$~%.'":*?¿<>{}=!¡_ÁÉÍÓÚ°|;ºª\/\\\-\[\]]+/g;
   regexOnlyLetter = /[a-zA-Z\s]/g;
   regexOnlyNumber = /[0-9]/g;
   regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/g;
-  sendForm: boolean = false;
+  sendForm = false;
   countries: any = [];
   departments: any = [];
 
-  constructor(
-    private formBuilder: FormBuilder, 
-    private registerService: RegisterService,
-    private router: Router
-  ) {}
+  constructor(private formBuilder: FormBuilder, private registerService: RegisterService, private router: Router) {}
 
   ngOnInit(): void {
     this.initForm();
@@ -34,7 +30,7 @@ export class RegisterComponent implements OnInit {
   }
 
   /**
-   * funcion para inicializar el formulario de creacion
+   * funcion para inicializar el formulario de registro
    */
   initForm(): any {
     this.registerForm = this.formBuilder.group(
@@ -43,7 +39,7 @@ export class RegisterComponent implements OnInit {
         lastName: ['', [Validators.required, Validators.maxLength(30)]],
         country: ['', Validators.required],
         department: ['', Validators.required],
-        email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
+        email: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
         phone: ['', [Validators.required, Validators.maxLength(10)]],
         password: ['', [Validators.required, Validators.minLength(6)]],
         confirmPassword: ['', Validators.required],
@@ -55,7 +51,10 @@ export class RegisterComponent implements OnInit {
     );
   }
 
-  initMessagesForm() {
+  /**
+   * Funcion para inicializar los mensajes correspondientes a los errores que puede tener el formulario
+   */
+  initMessagesForm(): any {
     this.formMessage = {
       userName: [
         { type: 'required', message: 'El campo es obligatorio' },
@@ -94,7 +93,10 @@ export class RegisterComponent implements OnInit {
     };
   }
 
-  validateFieldForm() {
+  /**
+   * Funcion para realizar validaciones de los campos que sean necesarios, de acuerdo a las reglas mencionadas
+   */
+  validateFieldForm(): any {
     return (group) => {
       const FIELD_WITHOUT_CHAR = ['userName', 'lastName', 'phone'];
       FIELD_WITHOUT_CHAR.forEach((element) => {
@@ -116,28 +118,38 @@ export class RegisterComponent implements OnInit {
         }
       });
 
-      const VALUE_PHONE = group.controls['phone'];
+      const VALUE_PHONE = group.controls.phone;
       if (this.regexOnlyLetter.test(VALUE_PHONE.value)) {
         VALUE_PHONE.setErrors({ pattern: true });
       }
 
-      const PASSWORD = group.controls['password'];
-      const CONFIRM_PASSWORD = group.controls['confirmPassword'];
+      const PASSWORD = group.controls.password;
+      const CONFIRM_PASSWORD = group.controls.confirmPassword;
       if (PASSWORD.value !== CONFIRM_PASSWORD.value) {
         CONFIRM_PASSWORD.setErrors({ nomatch: true });
       }
     };
   }
 
-  filterDepartments(countryId) {
-    this.departments = DEPARTMENTS.filter((department) => department.country_id == countryId);
+  /**
+   * Funcion para filtrar los departamentos de acuerdo al pais seleccionado
+   */
+  filterDepartments(countryId): any {
+    // tslint:disable-next-line: radix
+    this.departments = DEPARTMENTS.filter((department) => department.country_id === parseInt(countryId));
   }
 
-  async saveRegister() {
+  /**
+   * Funcion que llama al servicio de registro y al obtener respuesta correcta se
+   * almacena en localstorage
+   */
+  async saveRegister(): Promise<any> {
     this.sendForm = true;
     if (!this.registerForm.invalid) {
       const DATA = this.registerForm.value;
+      // tslint:disable-next-line: radix
       const COUNTRY = COUNTRIES.find((country) => country.country_id === parseInt(DATA.country));
+      // tslint:disable-next-line: radix
       const DEPARTMENT = DEPARTMENTS.find((department) => department.department_id === parseInt(DATA.department));
 
       const USER = {
@@ -149,7 +161,7 @@ export class RegisterComponent implements OnInit {
         phone: DATA.phone,
         password: DATA.password,
       };
-      
+
       try {
         const RESULT_REGISTER = await this.registerService.registerUser(USER);
         localStorage.setItem('user', JSON.stringify(RESULT_REGISTER));
@@ -160,37 +172,40 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  getError(key, error) {
+  /**
+   * Funcion para obtener el error correspondiente de cada campo
+   */
+  getError(key, error): any {
     const keyError = Object.keys(error)[0];
     const errorFound = this.formMessage[key].find((typeError) => typeError.type === keyError);
     return errorFound.message;
   }
 
-  get userName() {
+  get userName(): any {
     return this.registerForm.get('userName');
   }
-  get lastName() {
+  get lastName(): any {
     return this.registerForm.get('lastName');
   }
-  get country() {
+  get country(): any {
     return this.registerForm.get('country');
   }
-  get department() {
+  get department(): any {
     return this.registerForm.get('department');
   }
-  get email() {
+  get email(): any {
     return this.registerForm.get('email');
   }
-  get phone() {
+  get phone(): any {
     return this.registerForm.get('phone');
   }
-  get password() {
+  get password(): any {
     return this.registerForm.get('password');
   }
-  get confirmPassword() {
+  get confirmPassword(): any {
     return this.registerForm.get('confirmPassword');
   }
-  get terms() {
+  get terms(): any {
     return this.registerForm.get('terms');
   }
 }

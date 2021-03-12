@@ -1,1 +1,54 @@
-<p>list-technologies works!</p>
+<app-header [isFavourite]="isFavourite"></app-header>
+
+<div class="list-tech top-space">
+  <div class="list-tech__content general-grid">
+      <h1 class="list-tech__content__title">Listado de tecnologías</h1>
+
+    <div>
+        <input type="text" placeholder="Buscar" (keyup)="applyFilter($event)">
+        <button (click)="orderAsc()">Ordernar ascendente</button>
+        <button (click)="orderDesc()">Ordernar descendente</button>
+    </div>
+
+    <div class="list-tech__content__grid list-tech__content__grid--header">
+      <div class="list-tech__content__grid__field">
+        <p>Nombre</p>
+      </div>
+      <div class="list-tech__content__grid__field">
+        <p>Lenguaje</p>
+      </div>
+      <div class="list-tech__content__grid__field">
+        <p>Tipo</p>
+      </div>
+      <div class="list-tech__content__grid__field">
+        <p>Más información</p>
+      </div>
+      <div class="list-tech__content__grid__field">
+        <p>Favorito</p>
+      </div>
+    </div>
+
+    <div class="list-tech__content__grid list-tech__content__grid--element" *ngFor="let tech of techs">
+      <div class="list-tech__content__grid__field">
+        <p>{{ tech.tech }}</p>
+      </div>
+      <div class="list-tech__content__grid__field">
+        <p>{{ tech.language }}</p>
+      </div>
+      <div class="list-tech__content__grid__field">
+        <p>{{ tech.type }}</p>
+      </div>
+      <div class="list-tech__content__grid__field">
+        <button>Ver más</button>
+      </div>
+      <div class="list-tech__content__grid__field">
+        <button *ngIf="!tech.is_favourite" (click)="favouriteTech(tech)">davorito</button>
+        <button *ngIf="tech.is_favourite" (click)="removeFavouriteTech(tech)">quitar favorito</button>
+      </div>
+    </div>
+
+    <div>
+        <p>Total de tecnologias: <strong>{{techs.length}}</strong></p>
+    </div>
+  </div>
+</div>

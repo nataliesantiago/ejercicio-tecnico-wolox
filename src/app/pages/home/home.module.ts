@@ -7,13 +7,15 @@ import { WoloxerSectionComponent } from './woloxer-section/woloxer-section.compo
 import { BenefitSectionComponent } from './benefit-section/benefit-section.component';
 import { ThanksSectionComponent } from './thanks-section/thanks-section.component';
 import { HomeComponent } from './home.component';
+import { HeaderModule } from '../../partials/header/header.module';
 
 
 @NgModule({
   declarations: [WelcomeSectionComponent, WoloxerSectionComponent, BenefitSectionComponent, ThanksSectionComponent, HomeComponent],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    HeaderModule
   ]
 })
 export class HomeModule { }

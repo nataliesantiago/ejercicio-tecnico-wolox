@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup } from '@angul
 import { RegisterComponent } from './register.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { RegisterService } from '../../services/register/register.service';
+import { HeaderModule } from 'src/app/partials/header/header.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { RegisterService } from '../../services/register/register.service';
     RegisterRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    NgSelectModule
+    NgSelectModule,
+    HeaderModule
   ],
   providers: [
     RegisterService
