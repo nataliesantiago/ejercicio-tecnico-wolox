@@ -82,3 +82,27 @@
     }
   }
 }
+
+@media (max-width: 1023px) {
+  .register {
+  
+    &-content {
+
+      &__title {
+        margin-bottom: 30px;
+      }
+  
+      &__form {
+
+        &__column {
+            width: 100%;
+        }
+  
+        .btn-blue {
+          width: 35%;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}

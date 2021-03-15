@@ -39,7 +39,6 @@
           cursor: pointer;
 
           &--text {
-
             a {
               color: $color-black;
             }
@@ -52,27 +51,27 @@
           &--button {
             width: 40%;
             margin-right: 0;
-  
+
             a {
               color: $color-blue;
-  
+
               &:hover {
                 color: $color-white;
               }
             }
-  
+
             &:hover {
               text-decoration: none;
             }
           }
-          
+
           &--fav {
             &__icon {
               position: relative;
               height: 30px;
               width: 30px;
               display: block;
-              
+
               img {
                 width: 30px;
               }
@@ -83,6 +82,29 @@
                 right: -8px;
               }
             }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1023px) {
+  .header {
+    &-content {
+      flex-direction: column;
+      &__logo {
+        width: 50%;
+        padding-bottom: 10px;
+      }
+
+      &__menu {
+        width: 100%;
+
+        &__list {
+          
+          li {
+            font-size: 0.8em;
           }
         }
       }

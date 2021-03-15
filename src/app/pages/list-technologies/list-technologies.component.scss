@@ -44,38 +44,146 @@
     }
 
     &__grid {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
+      &-desktop {
+        display: block;
 
-      &__field {
-        width: 20%;
-        margin-bottom: 10px;
+        &__list {
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
 
-        &-fav {
-            img {
+          &__field {
+            width: 20%;
+            margin-bottom: 10px;
+
+            &-fav {
+              img {
                 cursor: pointer;
                 width: 25px;
+              }
             }
+          }
+
+          &--header {
+            p {
+              font-family: 'Montserrat-Bold';
+            }
+          }
+
+          &--element {
+            .btn-green {
+              width: 60%;
+            }
+          }
         }
       }
 
-      &--header {
-        p {
-          font-family: 'Montserrat-Bold';
-        }
-      }
-
-      &--element {
-        .btn-green {
-          width: 60%;
-        }
+      &-mobile {
+        display: none;
       }
     }
 
     &__total {
       margin: 15px 0 20px 0;
       text-align: right;
+    }
+  }
+}
+
+@media (max-width: 1023px) {
+  .list-tech {
+    &__content {
+      &__search {
+        margin-bottom: 30px;
+
+        &-input {
+          width: 100%;
+          margin-bottom: 15px;
+        }
+
+        &-order {
+          width: 100%;
+
+          .btn-transparent,
+          .btn-blue {
+            padding: 5px 15px;
+          }
+        }
+      }
+
+      &__grid {
+        &-desktop {
+          display: none;
+        }
+
+        &-mobile {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-wrap: wrap;
+
+          &__card {
+            width: 45%;
+            background: #FFFFFF;
+            box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+            padding: 10px;
+            text-align: center;
+            position: relative;
+            margin-bottom: 10px;
+            height: 25vh;
+
+            &:nth-child(2n+1) {
+              margin-right: 5px;
+            }
+
+            @media (max-width: 767px) {
+              width: 100%;
+              height: 55vh;
+            }
+
+            h2 {
+              font-size: 1em;
+            }
+
+            &-image {
+              width: 30%;
+              margin: 10px auto;
+
+              @media (max-width: 767px) {
+                width: 50%;
+              }
+
+              img {
+                width: 100%;
+              }
+            }
+
+            p {
+              font-size: 1em;
+            }
+
+            &-favourite {
+              position: absolute;
+              top: 10px;
+              right: 10px;
+
+              &__image {
+                width: 25px;
+                display: block;
+
+                img {
+                  width: 100%;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &__total {
+        margin: 15px 0 20px 0;
+        text-align: right;
+      }
     }
   }
 }

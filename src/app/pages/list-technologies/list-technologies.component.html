@@ -15,44 +15,68 @@
       </div>
     </div>
 
-    <div class="list-tech__content__grid list-tech__content__grid--header">
-      <div class="list-tech__content__grid__field">
-        <p>Nombre</p>
+    <div class="list-tech__content__grid list-tech__content__grid-desktop">
+      <div class="list-tech__content__grid-desktop__list list-tech__content__grid-desktop__list--header">
+        <div class="list-tech__content__grid-desktop__list__field">
+          <p>Nombre</p>
+        </div>
+        <div class="list-tech__content__grid-desktop__list__field">
+          <p>Lenguaje</p>
+        </div>
+        <div class="list-tech__content__grid-desktop__list__field">
+          <p>Tipo</p>
+        </div>
+        <div class="list-tech__content__grid-desktop__list__field">
+          <p>Más información</p>
+        </div>
+        <div class="list-tech__content__grid-desktop__list__field">
+          <p>Favorito</p>
+        </div>
       </div>
-      <div class="list-tech__content__grid__field">
-        <p>Lenguaje</p>
-      </div>
-      <div class="list-tech__content__grid__field">
-        <p>Tipo</p>
-      </div>
-      <div class="list-tech__content__grid__field">
-        <p>Más información</p>
-      </div>
-      <div class="list-tech__content__grid__field">
-        <p>Favorito</p>
+  
+      <div class="list-tech__content__grid-desktop__list list-tech__content__grid-desktop__list--element" *ngFor="let tech of techs">
+        <div class="list-tech__content__grid-desktop__list__field">
+          <p>{{ tech.tech }}</p>
+        </div>
+        <div class="list-tech__content__grid-desktop__list__field">
+          <p>{{ tech.language }}</p>
+        </div>
+        <div class="list-tech__content__grid-desktop__list__field">
+          <p>{{ tech.type }}</p>
+        </div>
+        <div class="list-tech__content__grid-desktop__list__field">
+          <button class="btn-green" (click)="showMore(tech)">Ver más</button>
+        </div>
+        <div class="list-tech__content__grid-desktop__list__field">
+          <span class="list-tech__content__grid-desktop__list__field-fav" *ngIf="!tech.is_favourite" (click)="favouriteTech(tech)">
+            <img src="assets/images/star.png" alt="" />
+          </span>
+          <span class="list-tech__content__grid-desktop__list__field-fav" *ngIf="tech.is_favourite" (click)="removeFavouriteTech(tech)">
+            <img src="assets/images/star_select.png" alt="" />
+          </span>
+        </div>
       </div>
     </div>
 
-    <div class="list-tech__content__grid list-tech__content__grid--element" *ngFor="let tech of techs">
-      <div class="list-tech__content__grid__field">
-        <p>{{ tech.tech }}</p>
-      </div>
-      <div class="list-tech__content__grid__field">
-        <p>{{ tech.language }}</p>
-      </div>
-      <div class="list-tech__content__grid__field">
-        <p>{{ tech.type }}</p>
-      </div>
-      <div class="list-tech__content__grid__field">
-        <button class="btn-green" (click)="showMore(tech)">Ver más</button>
-      </div>
-      <div class="list-tech__content__grid__field">
-        <span class="list-tech__content__grid__field-fav" *ngIf="!tech.is_favourite" (click)="favouriteTech(tech)">
-          <img src="assets/images/star.png" alt="" />
-        </span>
-        <span class="list-tech__content__grid__field-fav" *ngIf="tech.is_favourite" (click)="removeFavouriteTech(tech)">
-          <img src="assets/images/star_select.png" alt="" />
-        </span>
+    <div class="list-tech__content__grid list-tech__content__grid-mobile">
+      <div class="list-tech__content__grid list-tech__content__grid-mobile__card" *ngFor="let tech of techs">
+        <h2>{{tech.tech}}</h2>
+        <div class="list-tech__content__grid list-tech__content__grid-mobile__card-image">
+          <img [src]="tech.logo" alt="">
+        </div>
+        <p><strong>Autor: </strong>{{tech.author}}</p>
+        <p><strong>Año: </strong>{{tech.year}}</p>
+        <p><strong>Lenguaje: </strong>{{tech.language}}</p>
+        <p><strong>Tipo: </strong>{{tech.type}}</p>
+        <p><strong>Autor: </strong>{{tech.author}}</p>
+        <div class="list-tech__content__grid list-tech__content__grid-mobile__card-favourite">
+          <span class="list-tech__content__grid list-tech__content__grid-mobile__card-favourite__image" *ngIf="!tech.is_favourite" (click)="favouriteTech(tech)">
+            <img src="assets/images/star.png" alt="" />
+          </span>
+          <span class="list-tech__content__grid list-tech__content__grid-mobile__card-favourite__image" *ngIf="tech.is_favourite" (click)="removeFavouriteTech(tech)">
+            <img src="assets/images/star_select.png" alt="" />
+          </span>
+        </div>
       </div>
     </div>
 

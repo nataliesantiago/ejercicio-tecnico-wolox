@@ -40,3 +40,32 @@
     }
   }
 }
+
+@media (max-width: 1023px) {
+  .thanks {
+    height: 100%;
+  
+    &-content {
+      padding-top: 30px;
+  
+      &__text {
+        &__message {
+          font-size: 1.5em;
+        }
+  
+        &__sub-message {
+          font-size: 1em;
+          padding-bottom: 20px;
+        }
+
+        .btn-blue {
+            width: 40%;
+        }
+      }
+  
+      &__image {
+          padding-top: 50px;
+      }
+    }
+  }
+}
