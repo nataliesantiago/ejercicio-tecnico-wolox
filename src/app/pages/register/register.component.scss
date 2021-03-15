@@ -1,7 +1,18 @@
 @import 'styles';
 
 .register {
+  background-image: url('../../../assets/images/bg_footer.png');
+  min-height: calc(100vh - 150px);
+
   &-content {
+
+    &__title {
+      text-align: center;
+      font-family: 'Montserrat-Bold';
+      color: $color-green;
+      margin-bottom: 50px;
+    }
+
     &__form {
       display: flex;
       align-items: flex-start;
@@ -10,12 +21,63 @@
 
       &__column {
           width: 48%;
+          margin-bottom: 20px;
 
           label,
           input,
           select {
               width: 100%;
+              font-family: 'Montserrat-Regular';
           }
+
+          input,
+          select {
+            font-size: 1em;
+            padding: 6px 0;
+          }
+
+          &-error {
+            margin-top: 5px;
+            font-size: 0.8em;
+            color: $color-red;
+          }
+      }
+
+      &__terms {
+        width: 100%;
+        margin-bottom: 20px;
+
+        &-check {
+          display: flex;
+          align-self: center;
+
+          p {
+            font-family: 'Montserrat-Regular';
+
+            a {
+              color: $color-blue;
+              font-family: 'Montserrat-Bold';
+
+              &:focus,
+              &:visited {
+                color: $color-blue;
+              }
+            }
+          }
+        }
+      }
+
+      .btn-blue {
+        width: 15%;
+
+        &.disabled{
+          opacity: 0.2;
+
+          &:hover {
+            background-color: $color-blue;
+            color: $color-white;
+          }
+        }
       }
     }
   }

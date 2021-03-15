@@ -1,20 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ListTechnologiesService } from '../../services/list-technologies/list-technologies.service';
-
+import swal from 'sweetalert2';
 @Component({
   selector: 'app-list-technologies',
   templateUrl: './list-technologies.component.html',
-  styleUrls: ['./list-technologies.component.scss']
+  styleUrls: ['./list-technologies.component.scss'],
 })
 export class ListTechnologiesComponent implements OnInit {
-
   techs: any = [];
   favouriteTechs: any = [];
   isFavourite = false;
 
-  constructor(
-    private listTechService: ListTechnologiesService
-  ) { }
+  constructor(private listTechService: ListTechnologiesService) {}
 
   ngOnInit(): void {
     this.getTechs();
@@ -30,8 +27,8 @@ export class ListTechnologiesComponent implements OnInit {
       const FAVOURITE_TECHS = localStorage.getItem('favourite_techs');
       this.favouriteTechs = JSON.parse(FAVOURITE_TECHS);
       if (FAVOURITE_TECHS !== null) {
-        const RESULT_FAV = this.techs.map(tech => {
-          const RESLT_FIND = this.favouriteTechs.find(favourite => favourite.tech === tech.tech);
+        const RESULT_FAV = this.techs.map((tech) => {
+          const RESLT_FIND = this.favouriteTechs.find((favourite) => favourite.tech === tech.tech);
           if (RESLT_FIND !== undefined) {
             tech.is_favourite = true;
           }
@@ -53,7 +50,7 @@ export class ListTechnologiesComponent implements OnInit {
     if (FILTER_VALUE === '') {
       this.getTechs();
     } else {
-      const RESULT_FILTER = this.techs.filter(tech => {
+      const RESULT_FILTER = this.techs.filter((tech) => {
         if (tech.tech.trim().toLowerCase().includes(FILTER_VALUE) || tech.type.trim().toLowerCase().includes(FILTER_VALUE)) {
           return tech;
         }
@@ -116,4 +113,27 @@ export class ListTechnologiesComponent implements OnInit {
     this.isFavourite = true;
   }
 
+  /**
+   * Funcion para mostrar la modal con la demas informacion de la tecnologia
+   *
+   */
+  showMore(tech): any {
+    const HTML = `
+      <section>
+        <img src="${tech.logo}" style="width: 130px">
+        <p><strong>Autor: </strong>${tech.author}</p>
+        <p><strong>Lenguaje: </strong>${tech.language}</p>
+        <p><strong>Licencia: </strong>${tech.license}</p>
+        <p><strong>Tipo: </strong>${tech.type}</p>
+        <p><strong>Año: </strong>${tech.year}</p>
+      </section>
+    `;
+
+    swal.fire({
+      title: tech.tech,
+      html: HTML,
+      showCancelButton: false,
+      confirmButtonText: 'Aceptar'
+    });
+  }
 }

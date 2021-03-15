@@ -65,7 +65,24 @@
               text-decoration: none;
             }
           }
-          &:last-child {
+          
+          &--fav {
+            &__icon {
+              position: relative;
+              height: 30px;
+              width: 30px;
+              display: block;
+              
+              img {
+                width: 30px;
+              }
+
+              &-number {
+                position: absolute;
+                top: -8px;
+                right: -8px;
+              }
+            }
           }
         }
       }

@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-
   registerForm: FormGroup;
   formMessage: any;
   regexSpecialChar = /[�&#,+()$~%.'":*?¿<>{}=!¡_ÁÉÍÓÚ°|;ºª\/\\\-\[\]]+/g;
@@ -21,11 +20,7 @@ export class RegisterComponent implements OnInit {
   countries: any = [];
   departments: any = [];
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private registerService: RegisterService,
-    private router: Router
-  ) {}
+  constructor(private formBuilder: FormBuilder, private registerService: RegisterService, private router: Router) {}
 
   ngOnInit(): void {
     this.initForm();

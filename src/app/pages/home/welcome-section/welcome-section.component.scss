@@ -1,4 +1,4 @@
-@import "styles";
+@import 'styles';
 
 .welcome {
   background-image: url('../../../../assets/images/bg_header.png');
@@ -11,26 +11,53 @@
     justify-content: space-between;
 
     &__text {
-        padding-right: 15%;
-        &__message {
-            font-size: 2.5em;
-            font-family: 'Montserrat-Regular';
-            &--bold {
-                font-family: 'Montserrat-Bold';
-            }
-            &--green {
-                font-family: 'Montserrat-Bold';
-                color: $color-green;
-            }
+      padding-right: 15%;
+      &__message {
+        font-size: 2.5em;
+        font-family: 'Montserrat-Regular';
+        animation-duration: 2s;
+        animation-name: showtext;
+        position: relative;
+        &--bold {
+          font-family: 'Montserrat-Bold';
         }
+        &--green {
+          font-family: 'Montserrat-Bold';
+          color: $color-green;
+        }
+      }
     }
 
     &__image {
-        padding-right: 8%;
+      padding-right: 8%;
 
-        img {
-            transform: scaleX(-1);
-        }
+      img {
+        transform: scaleX(-1);
+        animation-duration: 2s;
+        animation-name: showimage;
+      }
     }
   }
 }
+
+@keyframes showtext {
+  from {
+    left: -100%;
+  }
+
+  to {
+    left: 0%;
+  }
+}
+
+@keyframes showimage {
+    0% {
+        transform: scale(-1,1);
+    }
+    50% {
+        transform: scale(-1.2,1.2);
+    }
+    100% {
+        transform: scale(-1,1);
+    }
+  }

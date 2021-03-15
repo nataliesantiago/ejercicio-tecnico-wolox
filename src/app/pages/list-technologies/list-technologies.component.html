@@ -1,13 +1,18 @@
 <app-header [isFavourite]="isFavourite"></app-header>
 
-<div class="list-tech top-space">
+<section class="list-tech top-space">
   <div class="list-tech__content general-grid">
-      <h1 class="list-tech__content__title">Listado de tecnologías</h1>
+    <h1 class="list-tech__content__title">Listado de <span class="list-tech__content__title--green">tecnologías</span></h1>
 
-    <div>
-        <input type="text" placeholder="Buscar" (keyup)="applyFilter($event)">
-        <button (click)="orderAsc()">Ordernar ascendente</button>
-        <button (click)="orderDesc()">Ordernar descendente</button>
+    <div class="list-tech__content__search">
+      <div class="list-tech__content__search-input">
+        <label>Buscar</label>
+        <input type="text" (keyup)="applyFilter($event)" />
+      </div>
+      <div class="list-tech__content__search-order">
+        <button class="list-tech__content__search-order__button btn-transparent" (click)="orderAsc()">Ordernar ascendente</button>
+        <button class="list-tech__content__search-order__button btn-blue" (click)="orderDesc()">Ordernar descendente</button>
+      </div>
     </div>
 
     <div class="list-tech__content__grid list-tech__content__grid--header">
@@ -39,16 +44,22 @@
         <p>{{ tech.type }}</p>
       </div>
       <div class="list-tech__content__grid__field">
-        <button>Ver más</button>
+        <button class="btn-green" (click)="showMore(tech)">Ver más</button>
       </div>
       <div class="list-tech__content__grid__field">
-        <button *ngIf="!tech.is_favourite" (click)="favouriteTech(tech)">davorito</button>
-        <button *ngIf="tech.is_favourite" (click)="removeFavouriteTech(tech)">quitar favorito</button>
+        <span class="list-tech__content__grid__field-fav" *ngIf="!tech.is_favourite" (click)="favouriteTech(tech)">
+          <img src="assets/images/star.png" alt="" />
+        </span>
+        <span class="list-tech__content__grid__field-fav" *ngIf="tech.is_favourite" (click)="removeFavouriteTech(tech)">
+          <img src="assets/images/star_select.png" alt="" />
+        </span>
       </div>
     </div>
 
-    <div>
-        <p>Total de tecnologias: <strong>{{techs.length}}</strong></p>
+    <div class="list-tech__content__total">
+      <p>
+        Total tecnologias: <strong>{{ techs.length }}</strong>
+      </p>
     </div>
   </div>
-</div>
+</section>

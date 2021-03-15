@@ -1,19 +1,81 @@
-@import "styles";
+@import 'styles';
 
 .list-tech {
-    &__content {
-        &__title {
-            text-align: center;
+  background-image: url('../../../assets/images/bg_header.png');
+  min-height: calc(100vh - 150px);
+
+  &__content {
+    &__title {
+      text-align: center;
+      font-family: 'Montserrat-Regular';
+      margin-bottom: 25px;
+
+      &--green {
+        color: $color-green;
+      }
+    }
+
+    &__search {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+
+      &-input {
+        width: 50%;
+      }
+
+      &-order {
+        width: 50%;
+        text-align: right;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-end;
+
+        &__button {
+          cursor: pointer;
         }
 
-        &__grid {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
+        .btn-transparent {
+          margin-right: 5px;
+        }
+      }
+    }
 
-            &__field {
-                width: 20%;
+    &__grid {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      &__field {
+        width: 20%;
+        margin-bottom: 10px;
+
+        &-fav {
+            img {
+                cursor: pointer;
+                width: 25px;
             }
         }
+      }
+
+      &--header {
+        p {
+          font-family: 'Montserrat-Bold';
+        }
+      }
+
+      &--element {
+        .btn-green {
+          width: 60%;
+        }
+      }
     }
+
+    &__total {
+      margin: 15px 0 20px 0;
+      text-align: right;
+    }
+  }
 }

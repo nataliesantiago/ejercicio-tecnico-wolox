@@ -1,35 +1,32 @@
-<section class="header ">
-    <div class="header-content general-grid">
-        <div class="header-content__logo" (click)="navigateTo('inicio')">
-            <img src="assets/images/logo_full_color.svg" alt="">
-        </div>
-        
-        <div class="header-content__menu">
-            <ul class="header-content__menu__list">
-                <li class="header-content__menu__list__li header-content__menu__list__li--text">
-                    <a routerLink="inicio#inicio" routerLinkActive="router-link-active" (click)="forceNavigate('inicio')">
-                        Inicio
-                    </a>
-                </li>
-                <li class="header-content__menu__list__li header-content__menu__list__li--text">
-                    <a routerLink="inicio#beneficios" routerLinkActive="router-link-active" (click)="forceNavigate('beneficios')">
-                        Beneficios
-                    </a>
-                </li>
-                <li class="header-content__menu__list__li header-content__menu__list__li--button" *ngIf="!user && !user.token">
-                    <a class="btn-transparent" (click)="navigateTo('registrarse')">
-                        Registrarse
-                    </a>
-                </li>
-                <li class="header-content__menu__list__li header-content__menu__list__li--text" *ngIf="user && user.token">
-                    <a (click)="navigateTo('listado-tecnologias')">
-                        Listado tecnologias
-                    </a>
-                </li>
-                <li class="header-content__menu__list__li" *ngIf="user && user.token && haveFavouriteTech.length > 0">
-                    {{haveFavouriteTech.length}}
-                </li>
-            </ul>
-        </div>
+<section class="header">
+  <div class="header-content general-grid">
+    <div class="header-content__logo" (click)="navigateTo('inicio')">
+      <img src="assets/images/logo_full_color.svg" alt="" />
     </div>
+
+    <div class="header-content__menu">
+      <ul class="header-content__menu__list">
+        <li class="header-content__menu__list__li header-content__menu__list__li--text">
+          <a routerLink="inicio#inicio" routerLinkActive="router-link-active" (click)="forceNavigate('inicio')"> Inicio </a>
+        </li>
+        <li class="header-content__menu__list__li header-content__menu__list__li--text">
+          <a routerLink="inicio#beneficios" routerLinkActive="router-link-active" (click)="forceNavigate('beneficios')"> Beneficios </a>
+        </li>
+        <li class="header-content__menu__list__li header-content__menu__list__li--button" *ngIf="!user && !user.token">
+          <a class="btn-transparent" (click)="navigateTo('registrarse')"> Registrarse </a>
+        </li>
+        <li class="header-content__menu__list__li header-content__menu__list__li--text" *ngIf="user && user.token">
+          <a (click)="navigateTo('listado-tecnologias')"> Listado tecnologias </a>
+        </li>
+        <li class="header-content__menu__list__li header-content__menu__list__li--fav" *ngIf="user && user.token && haveFavouriteTech.length > 0">
+          <span class="header-content__menu__list__li--fav__icon">
+            <img src="assets/images/star_select.png" alt="" />
+            <span class="header-content__menu__list__li--fav__icon-number">
+              {{ haveFavouriteTech.length }}
+            </span>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
 </section>
