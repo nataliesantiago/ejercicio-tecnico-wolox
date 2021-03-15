@@ -1,8 +1,9 @@
 @import 'variables';
 
 .general-grid {
-  max-width: 1200px;
+  max-width: 1230px;
   margin: 0 auto;
+  padding: 0 15px;
 }
 
 .top-space {
@@ -16,12 +17,12 @@
   padding: 10px 15px;
   color: $color-blue;
   transition: background-color 0.8s, color 0.8s;
+  cursor: pointer;
   &:hover {
     background-color: $color-blue;
     color: $color-white;
   }
 }
-
 
 .btn-blue {
   display: block;
@@ -31,9 +32,73 @@
   color: $color-white;
   transition: background-color 0.8s, color 0.8s;
   border: 1px solid $color-blue;
+  cursor: pointer;
   &:hover {
     background-color: transparent;
     color: $color-blue;
     border: 1px solid $color-blue;
+  }
+}
+
+.btn-green {
+  display: block;
+  border-radius: 20px;
+  padding: 10px 15px;
+  color: $color-green;
+  transition: background-color 0.8s, color 0.8s;
+  border: 1px solid $color-green;
+  cursor: pointer;
+  font-weight: bold;
+  &:hover {
+    background-color: $color-green;
+    color: $color-white;
+    border: 1px solid $color-green;
+  }
+}
+
+input[type=text],
+input[type=number],
+input[type=email],
+input[type=password] {
+  border: 0;
+  border-radius: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: none;
+  color: $color-black;
+  padding: 10px 0;
+  position: relative;
+  white-space: nowrap;
+  width: 100%;
+  border-bottom: 2px solid $color-black;
+
+  &:focus,
+  &:active {
+    outline: none;
+    border-bottom: 2px solid $color-blue;
+  }
+}
+
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: none;
+
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}
+
+select {
+  border: none;
+  border-bottom: 2px solid $color-black;
+
+  &:focus,
+  &:active {
+    outline: none;
+    border-bottom: 2px solid $color-blue;
   }
 }
