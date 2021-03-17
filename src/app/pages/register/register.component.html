@@ -74,14 +74,14 @@
       <div class="register-content__form__terms">
         <div class="register-content__form__terms-check">
           <input type="checkbox" name="" id="" formControlName="terms" />
-          <p>Acepto <a routerLink="/terminos-y-condiciones">terminos y condiciones*</a></p>
+          <p>Acepto <a routerLink="/terminos-y-condiciones">términos y condiciones*</a></p>
         </div>
         <label class="register-content__form__column-error" *ngIf="(confirmPassword.touched || sendForm) && terms.invalid">{{
           getError('terms', terms.errors)
         }}</label>
       </div>
 
-      <button class="btn-blue" [ngClass]="{ disabled: registerForm.invalid }" [disabled]="registerForm.invalid">Guardar</button>
+      <button class="btn-blue" [ngClass]="{ disabled: registerForm.invalid }" [disabled]="registerForm.invalid">Registrarse</button>
     </form>
   </div>
 </section>
