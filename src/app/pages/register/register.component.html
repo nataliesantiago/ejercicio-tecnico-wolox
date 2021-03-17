@@ -76,7 +76,7 @@
           <input type="checkbox" name="" id="" formControlName="terms" />
           <p>Acepto <a routerLink="/terminos-y-condiciones">terminos y condiciones*</a></p>
         </div>
-        <label class="register-content__form__column-error" *ngIf="(terms.touched || sendForm) && terms.invalid">{{
+        <label class="register-content__form__column-error" *ngIf="(confirmPassword.touched || sendForm) && terms.invalid">{{
           getError('terms', terms.errors)
         }}</label>
       </div>
