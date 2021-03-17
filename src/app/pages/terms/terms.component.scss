@@ -1,0 +1,21 @@
+@import 'styles';
+
+.register {
+  background-image: url('../../../assets/images/bg_footer.png');
+  min-height: calc(100vh - 150px);
+
+  &-content {
+
+    &__title {
+      text-align: center;
+      font-family: 'Montserrat-Bold';
+      color: $color-blue;
+      margin-bottom: 50px;
+
+      &--green {
+          color: $color-green;
+      }
+    }
+
+  }
+}
